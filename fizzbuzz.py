@@ -1,9 +1,18 @@
 import sys
 upperLimit = 100
-if len(sys.argv) > 1:
-    upperLimit = int(sys.argv[1])
-else:
-    upperLimit = int(raw_input("Enter upper limit: "))
+try:
+    if len(sys.argv) > 1:
+      upperLimit = int(sys.argv[1])
+    else:
+        upperLimit = int(raw_input("Enter upper limit: "))
+except ValueError:
+    print "Not a numeric value"
+    while True:
+      try:
+        upperLimit = int(raw_input("Enter upper limit: "))
+        break
+      except:
+        print "Not a numeric value"
     
 print "Fizz buzz counting up to {}".format(upperLimit)
 for i in range(1,upperLimit+1):
